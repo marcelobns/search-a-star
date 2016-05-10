@@ -1,0 +1,46 @@
+* {
+    /*outline: 1px solid red;*/
+}
+body {
+    background-color: #dcd7d4;
+    background-image: url('../img/background.png');
+}
+.canvas {
+    width: 800px;
+    margin: auto;
+    margin-top: 5%;
+}
+.brand {
+    border: none;
+    border-radius: 0px;
+    margin: 10px 20px;
+    box-shadow: 2px 3px 5px rgba(0,0,0, 0.2), 1px 3px 5px rgba(0,0,0, 0.3);
+}
+.form-group .fa {
+    clear: both;
+}
+.modal-header {
+    background-color:#4285f4
+}
+.input {
+    min-height: 150px;
+}
+.modal-title {
+    color: white;
+}
+.badge {
+    float: right;
+}
+.footer {
+	text-align: center;
+	position: fixed;
+	bottom: 0px;
+	background-color: lightgray;
+	width: 100%;
+	padding: 10px;
+	opacity: 0.4;
+}
+.footer a {
+	color: red;
+	text-decoration: none;
+}

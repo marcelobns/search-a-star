@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Algorithm Star Search</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="css/suit-up.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="css/default.css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+        <a class="brand navbar-brand btn btn-default" href="#" data-toggle="modal" data-target=".nav-left" title="Rotas">
+            <i class="fa fa-blind fa-lg"></i> <i class="fa fa-braille fa-lg"></i>
+        </a>
+        <div class="container">
+            <div class="canvas">
+                <canvas id="layer0" width="800px" height="500px"
+                        style="position: absolute; z-index: 0;">
+                    Seu browser não suporta HTML5 canvas
+                </canvas>
+                <canvas id="layer1" width="800px" height="500px"
+                        style="position: absolute; z-index: 1;">
+                    Seu browser não suporta HTML5 canvas
+                </canvas>
+                <canvas id="layer2" width="800px" height="500px"
+                        style="position: absolute; z-index: 2;">
+                    Seu browser não suporta HTML5 canvas
+                </canvas>
+                <canvas id="layer3" width="800px" height="500px"
+                        style="position: absolute; z-index: 3;">
+                    Seu browser não suporta HTML5 canvas
+                </canvas>
+            </div>
+        </div>
+        <div class="modal nav-left fade" id="nav-left" tabindex="-1" role="dialog" aria-labelledby="navLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" aria-label="Close">
+                            &times;
+                        </button>
+                        <h4 class="modal-title text-center" id="navLabel">
+                            <i class="fa fa-blind fa-lg"></i> <i class="fa fa-braille fa-lg"></i>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input">
+                            <div class="form-group">
+                                <label for="origin"><i class="fa fa-circle-o fa-lg"></i> Origem</label>
+                                <select id="origin" class="form-control"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="destiny"><i class="fa fa-map-marker fa-lg"></i> Destino</label>
+                                <select id="destiny" class="form-control"></select>
+                            </div>
+                            <div class="form-group">
+                                <a id="find_path" href="#" class="btn btn-default btn-block"><b>Rotas...<b></a>
+                            </div>
+                        </div>
+
+                        <ul id="output" class="nav nav-pills nav-stacked">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div id="footer">
+                <p><a href="https://github.com/marcelobns/search-a-star" target="_blank"><i class="fa fa-github fa-lg"></i> Projeto e Manual</a></p><br>
+                <p>Autor: <a href="https://github.com/marcelobns" target="_blank">Marcelo Barbosa</a></p>
+                <p>Disciplina: Inteligência Artificial</p>
+                <p>Professor: José Franscisco Netto</p>
+            </div>
+        </div>
+        <script src="js/lib/jquery.min.js" charset="utf-8"></script>
+        <script src="js/lib/bootstrap.min.js" charset="utf-8"></script>
+        <script src="js/lib/ease.min.js" charset="utf-8"></script>
+        <script src="js/assets.js" charset="utf-8"></script>
+        <script src="js/canvas.js" charset="utf-8"></script>
+        <script src="js/a-star.js" charset="utf-8"></script>
+        <script src="js/main.js" charset="utf-8"></script>
+    </body>
+</html>
