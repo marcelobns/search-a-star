@@ -1,5 +1,5 @@
 var paths = [];
-//Ajuste das variáveis antes de chamar o construto de caminhos
+//Ajuste das variáveis antes de chamar o construtor de caminhos
 function find_path(map, origin, destiny) {
 
     map = set_h_cost(map, destiny);
@@ -45,7 +45,7 @@ function set_h_cost(data, goal) {
     }
     return data;
 }
-// Soma o custo de um caminho
+// Soma do custo de um caminho
 function get_cost(path) {
     var cost = 0
     for (var i = 0; i < path.length; i++) {
