@@ -11,10 +11,12 @@ body {
     margin-top: 5%;
 }
 .brand {
+    position: fixed;
     border: none;
     border-radius: 0px;
     margin: 10px 20px;
     box-shadow: 2px 3px 5px rgba(0,0,0, 0.2), 1px 3px 5px rgba(0,0,0, 0.3);
+    z-index: 99;
 }
 .form-group .fa {
     clear: both;

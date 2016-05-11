@@ -33,6 +33,12 @@ $(function(){
             });
         });
     });
+    $("#nav-left").on("swipe", function(e){
+        $('#nav-left').modal('hide')
+    });
+    $('#nav-left').on('shown.bs.modal', function (e) {
+        $('#nav-left .modal-content')[0].scrollTop = 0;
+    })
 });
 function load_form(data){
     $("#destiny").append("<option value=''>Selecione uma cidade...</option>");
