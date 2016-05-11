@@ -37,7 +37,7 @@ function path_builder(map, node, path){
         }
     }
 }
-// The Euclidean distance formula √((ax - bx)² + (ay - by)²)
+// Atribuição do h_cost baseado no destino, utilizando a fórmula √((ax - bx)² + (ay - by)²)
 function set_h_cost(data, goal) {
     goal = json_find(data, "name", goal);
     for (var i = 0; i < data.length; i++) {
