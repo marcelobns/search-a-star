@@ -1,7 +1,6 @@
 var paths = [];
 //Ajuste das variáveis antes de chamar o construtor de caminhos
 function find_path(map, origin, destiny) {
-
     map = set_h_cost(map, destiny);
     paths = [];
 

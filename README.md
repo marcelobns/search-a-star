@@ -4,7 +4,7 @@
 
  Implementação do Algoritmo A_Estrela (**A* Search**). A solução foi escrita em **JavaScript** por motivo de facilidade na distribuição e utiliza uma estrutura de dados semi-estruturada **JSON** como fonte de dados. E por fim o mapa é desenhado com HTML **Canvas**.
 
- Todas as tecnologia utilizadas são livres e padrões da industria.
+ Todas as tecnologia utilizadas são livres e padrões da industria. [<a href="http://marcelobns.github.io" target="blank">Live Demo</a>]
 
 #### JavaScript
  O JavaScript vem ganhando força de mercado por sua capacidade de resolver problemas de diversos tamanhos e complexidades. Padrão da indústria como linguagem Front-end para a web, também vem se consolidando como tecnologia Back-end e Desktop. [<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="blank">Saiba mais</a>]
@@ -63,7 +63,7 @@ function path_builder(map, node, path){
     }
 }
 ```
-Os dados são lidos do arquivo **model/map.json**. A estrutura armazena um array de objetos com a seguinte estrutura, que pode ser facilmente replicável.
+Os dados são lidos do arquivo **model/map.json**. O arquivo armazena um array de objetos com a seguinte estrutura, que pode ser facilmente replicável.
 ``` JSON
 {
     "name" : "Arad",
@@ -76,3 +76,11 @@ Os dados são lidos do arquivo **model/map.json**. A estrutura armazena um array
     ]
 },
 ```
+longitude e latitude são utilizados para a representação gráfica(x,y), e o atributo parents lista os nós adjacentes e custo para alcançar cada um deles.
+
+#### DEMO
+Você pode conferir a demo em: <a href="http//marcelobns.github.io" target="blank">marcelobns.github.io</a>
+
+## Licença de Uso
+GNU GENERAL PUBLIC LICENSE <br>
+   Version 3, 29 June 2007
