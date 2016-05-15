@@ -32,6 +32,9 @@
 O **Algoritmo** está implementado no arquivo **js/a-star.js**. O algoritmo foi implementado de forma recursiva para respeitar o princípio **DRY** (don't repeat yourself).
 
 ``` JS
+//Antes de montar o caminho é necessário calcular o h_cost(heuristic) baseado no destino utilizando a fórmula √((ax - bx)² + (ay - by)²)
+map = set_h_cost(map, destiny);
+
 //Chamada da função, último parametro vai vazio.
 path_builder(map, node, []);
 
