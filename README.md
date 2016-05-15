@@ -29,7 +29,7 @@
         * **map.json**
     * index.html
 
-O Algoritmo está implementado no arquivo a-star.js. O algoritmo foi implementado de forma recursiva para respeitar o princípio **DRY** (don't repeat yourself).
+O **Algoritmo** está implementado no arquivo **js/a-star.js**. O algoritmo foi implementado de forma recursiva para respeitar o princípio **DRY** (don't repeat yourself).
 
 ``` JS
 //Chamada da função, último parametro vai vazio.
@@ -62,4 +62,17 @@ function path_builder(map, node, path){
         }
     }
 }
+```
+Os dados são lidos do arquivo **model/map.json**. A estrutura armazena um array de objetos com a seguinte estrutura, que pode ser facilmente replicável.
+``` JSON
+{
+    "name" : "Arad",
+    "longitude" : 49,
+    "latitude" : 136,    
+    "parents" : [
+        {"Timisoara": 118},
+        {"Sibiu": 140},
+        {"Zerind": 75}
+    ]
+},
 ```

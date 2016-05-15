@@ -3,7 +3,6 @@
         "name" : "Arad",
         "longitude" : 49,
         "latitude" : 136,
-        "visited" : [],
         "parents" : [
             {"Timisoara": 118},
             {"Sibiu": 140},
@@ -14,7 +13,6 @@
         "name" : "Bucharest",
         "longitude" : 488,
         "latitude" : 371,
-        "visited" : [],
         "parents" : [
             {"Fagaras": 211},
             {"Pitesti": 101},
@@ -26,7 +24,6 @@
         "name" : "Craiova",
         "longitude" : 278,
         "latitude" : 427,
-        "visited" : [],
         "parents" : [
             {"Pitesti": 138},
             {"Rimnicu Vilcea": 146},
@@ -37,7 +34,6 @@
         "name" : "Dobreta",
         "longitude" : 154,
         "latitude" : 411,
-        "visited" : [],
         "parents" : [
             {"Craiova": 120},
             {"Mehadia": 75}
@@ -47,7 +43,6 @@
         "name" : "Eforie",
         "longitude" : 718,
         "latitude" : 419,
-        "visited" : [],
         "parents" : [
             {"Hirsova": 86}
         ]
@@ -56,7 +51,6 @@
         "name" : "Fagaras",
         "longitude" : 355,
         "latitude" : 198,
-        "visited" : [],
         "parents" : [
             {"Sibiu": 99},
             {"Bucharest": 211}
@@ -66,7 +60,6 @@
         "name" : "Giurgiu",
         "longitude" : 451,
         "latitude" : 451,
-        "visited" : [],
         "parents" : [
             {"Bucharest": 90}
         ]
@@ -75,7 +68,6 @@
         "name" : "Hirsova",
         "longitude" : 677,
         "latitude" : 339,
-        "visited" : [],
         "parents" : [
             {"Eforie": 86},
             {"Urziceni": 98}
@@ -85,7 +77,6 @@
         "name" : "Iasi",
         "longitude" : 593,
         "latitude" : 117,
-        "visited" : [],
         "parents" : [
             {"Neamt": 87},
             {"Vasiul": 92}
@@ -95,7 +86,6 @@
         "name" : "Lugoj",
         "longitude" : 154,
         "latitude" : 298,
-        "visited" : [],
         "parents" : [
             {"Mehadia": 70},
             {"Timisoara": 111}
@@ -105,7 +95,6 @@
         "name" : "Mehadia",
         "longitude" : 158,
         "latitude" : 354,
-        "visited" : [],
         "parents" : [
             {"Lugoj": 70},
             {"Dobreta": 75}
@@ -115,7 +104,6 @@
         "name" : "Neamt",
         "longitude" : 496,
         "latitude" : 73,
-        "visited" : [],
         "parents" : [
             {"Iasi": 87}
         ]
@@ -124,7 +112,6 @@
         "name" : "Oradea",
         "longitude" : 106,
         "latitude" : 25,
-        "visited" : [],
         "parents" : [
             {"Zerind": 71},
             {"Sibiu": 151}
@@ -134,7 +121,6 @@
         "name" : "Pitesti",
         "longitude" : 376,
         "latitude" : 314,
-        "visited" : [],
         "parents" : [
             {"Bucharest": 101},
             {"Craiova": 138},
@@ -145,7 +131,6 @@
         "name" : "Rimnicu Vilcea",
         "longitude" : 250,
         "latitude" : 254,
-        "visited" : [],
         "parents" : [
             {"Sibiu": 80},
             {"Craiova": 146},
@@ -156,7 +141,6 @@
         "name" : "Sibiu",
         "longitude" : 215,
         "latitude" : 186,
-        "visited" : [],
         "parents" : [
             {"Arad": 140},
             {"Oradea": 151},
@@ -168,7 +152,6 @@
         "name" : "Timisoara",
         "longitude" : 53,
         "latitude" : 254,
-        "visited" : [],
         "parents" : [
             {"Arad": 118},
             {"Lugoj": 111}
@@ -178,7 +161,6 @@
         "name" : "Urziceni",
         "longitude" : 569,
         "latitude" : 338,
-        "visited" : [],
         "parents" : [
             {"Bucharest": 85},
             {"Hirsova": 98},
@@ -189,7 +171,6 @@
         "name" : "Vasiul",
         "longitude" : 644,
         "latitude" : 204,
-        "visited" : [],
         "parents" : [
             {"Iasi": 92},
             {"Urziceni": 142}
@@ -198,8 +179,7 @@
     {
         "name" : "Zerind",
         "longitude" : 74,
-        "latitude" : 81,
-        "visited" : [],
+        "latitude" : 81,        
         "parents" : [
             {"Arad": 75},
             {"Oradea": 71}
