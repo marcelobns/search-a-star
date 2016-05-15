@@ -31,7 +31,7 @@
 
 O Algoritmo está implementado no arquivo a-star.js, foi implementado de forma recursiva para respeitar o princípio DRY (don't repeat yourself).
 
-```
+``` JS
 //Chamada da função, último parametro vai vazio.
 path_builder(map, node, []);
 
