@@ -4,7 +4,7 @@
 
  Implementação do Algoritmo A_Estrela (**A* Search**). A solução foi escrita em **JavaScript** por motivo de facilidade na distribuição e utiliza uma estrutura de dados semi-estruturada **JSON** como fonte de dados. E por fim o mapa é desenhado com HTML **Canvas**.
 
- Todas as tecnologia utilizadas são livres e padrões da industria. [<a href="http://marcelobns.github.io" target="blank">Live Demo</a>]
+ Todas as tecnologia utilizadas são livres e padrões da industria. [<a href="http://marcelobns.github.io" target="_blank">Live Demo</a>]
 
 #### JavaScript
  O JavaScript vem ganhando força de mercado por sua capacidade de resolver problemas de diversos tamanhos e complexidades. Padrão da indústria como linguagem Front-end para a web, também vem se consolidando como tecnologia Back-end e Desktop. [<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="blank">Saiba mais</a>]
@@ -32,10 +32,11 @@
 O **Algoritmo** está implementado no arquivo **js/a-star.js**. O algoritmo foi implementado de forma recursiva para respeitar o princípio **DRY** (don't repeat yourself).
 
 ``` JS
-//Antes de montar o caminho é necessário calcular o h_cost(heuristic) baseado no destino utilizando a fórmula √((ax - bx)² + (ay - by)²)
+// Antes de montar o caminho é necessário calcular o h_cost(heuristic) baseado no destino
+// utilizando a fórmula √((ax - bx)² + (ay - by)²)
 map = set_h_cost(map, destiny);
 
-//Chamada da função, último parametro vai vazio.
+// Chamada da função, último parametro vai vazio.
 path_builder(map, node, []);
 
 function path_builder(map, node, path){
