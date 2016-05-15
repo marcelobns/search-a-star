@@ -35,7 +35,6 @@ O Algoritmo está implementado no arquivo a-star.js, foi implementado de forma r
 //Chamada da função, último parametro vai vazio.
 path_builder(map, node, []);
 
-
 function path_builder(map, node, path){
     path.push(node);
     // Se o h_cost do nó for 0 então o caminho chegou ao destino
@@ -44,6 +43,7 @@ function path_builder(map, node, path){
         paths[get_cost(path)] = path.slice();
         return paths;
     }
+    // ordena os filhos pelo menor g_cost
     node.parents = json_sort_values(node.parents);
     for (var i = 0; i < node.parents.length; i++) {
         // ajuste de f_cost para o caminho não abrir nós na direção oposta ao destino
@@ -54,6 +54,7 @@ function path_builder(map, node, path){
             parent.g_cost = get_value(node.parents[i]);
             parent.f_cost = parent.g_cost + parent.h_cost;
 
+        // verifica se o caminho está na direção correta e se o nó filho não foi aberto
         if(parent.f_cost < node_f_cost && !json_find(path, "name", parent.name)){
             node.g_cost = parent.g_cost;
             path_builder(map, parent, path);
