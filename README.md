@@ -10,7 +10,7 @@
  O JavaScript vem ganhando força de mercado por sua capacidade de resolver problemas de diversos tamanhos e complexidades. Padrão da indústria como linguagem Front-end para a web, também vem se consolidando como tecnologia Back-end e Desktop. [<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript">Saiba mais</a>]
 
 #### JSON
- JSON (JavaScript Object Notation) é uma estrutura de dados do tipo semi-estruturada, caracterizada por ser menos verbosa que o XML. É escrita em formato texto e completamente independente de linguagem, pois usa conveções que são familiares às linguagens C, Java, Perl, Python e muitas outras. Estas propriedades fazem com que JSON seja um formato ideal de troca de dados. [<a href="http://www.json.org/json-pt.html">Saiba mais</a>]
+ JSON (JavaScript Object Notation) é uma estrutura de dados do tipo semi-estruturada, caracterizada por ser menos verbosa que o XML. É escrita em formato texto e completamente independente de linguagem, pois usa convenções que são familiares às linguagens C, Java, Perl, Python e muitas outras. Estas propriedades fazem com que JSON seja um formato ideal de troca de dados. [<a href="http://www.json.org/json-pt.html">Saiba mais</a>]
 
 #### Canvas
  É um elemento HTML que pode ser utilizado para desenhar usando linguagem de "script". Pode ser usado, por exemplo para desenha gráficos, fazer composições de imagens ou simples animações. [<a href="https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Canvas_tutorial">Saiba mais</a>]
@@ -47,8 +47,9 @@ function path_builder(map, node, path){
         paths[get_cost(path)] = path.slice();
         return paths;
     }
-    // ordena os filhos pelo menor g_cost
+    // ordena os filhos pelo menor g_cost    
     node.parents = json_sort_values(node.parents);
+    // percorre os filhos do nó atual
     for (var i = 0; i < node.parents.length; i++) {
         // ajuste de f_cost para o caminho não abrir nós na direção oposta ao destino
         var node_f_cost = Math.round(node.f_cost*2);
