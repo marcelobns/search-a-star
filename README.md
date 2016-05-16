@@ -36,7 +36,7 @@ O **Algoritmo** está implementado no arquivo **js/a-star.js**. O algoritmo foi 
 // utilizando a fórmula √((ax - bx)² + (ay - by)²)
 map = set_h_cost(map, destiny);
 
-// Chamada da função, último parametro vai vazio.
+// Chamada da função, último parametro vai um array vazio.
 path_builder(map, node, []);
 
 function path_builder(map, node, path){
