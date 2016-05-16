@@ -84,7 +84,7 @@ Os dados são lidos do arquivo **model/map.json**. O arquivo armazena um array d
 longitude e latitude são utilizados para a representação gráfica(x,y), e o atributo parents lista os nós adjacentes e custo para alcançar cada um deles.
 
 #### DEMO
-Você pode conferir a demo em: <a href="http//marcelobns.github.io">marcelobns.github.io</a>
+Você pode conferir a demo em: <a href="http://marcelobns.github.io">marcelobns.github.io</a>
 
 ## Licença de Uso
 GNU GENERAL PUBLIC LICENSE <br>
