@@ -4,7 +4,7 @@
 
  Implementação do Algoritmo A_Estrela (**A* Search**). A solução foi escrita em **JavaScript** por motivo de facilidade na distribuição e utiliza uma estrutura de dados semi-estruturada **JSON** como fonte de dados. E por fim o mapa é desenhado com HTML **Canvas**.
 
- Todas as tecnologia utilizadas são livres e padrões da industria. [<a href="http://marcelobns.github.io">Live Demo</a>]
+ Todas as tecnologia utilizadas são livres e padrões da industria. [<a href="https://marcelobns.github.io/project/search-a-star/">Live Demo</a>]
 
 #### JavaScript
  O JavaScript vem ganhando força de mercado por sua capacidade de resolver problemas de diversos tamanhos e complexidades. Padrão da indústria como linguagem Front-end para a web, também vem se consolidando como tecnologia Back-end e Desktop. [<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript">Saiba mais</a>]
@@ -84,7 +84,7 @@ Os dados são lidos do arquivo **model/map.json**. O arquivo armazena um array d
 longitude e latitude são utilizados para a representação gráfica(x,y), e o atributo parents lista os nós adjacentes e custo para alcançar cada um deles.
 
 #### DEMO
-Você pode conferir a demo em: <a href="http://marcelobns.github.io">marcelobns.github.io</a>
+Você pode conferir a demo em: <a href="https://marcelobns.github.io/project/search-a-star/">marcelobns.github.io</a>
 
 ## Licença de Uso
 GNU GENERAL PUBLIC LICENSE <br>
