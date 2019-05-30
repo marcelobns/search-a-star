@@ -21,17 +21,17 @@ function path_builder(map, node, path){
         paths[get_cost(path)] = path.slice();
         return paths;
     }
-    node.parents = json_sort_values(node.parents);
-    for (var i = 0; i < node.parents.length; i++) {
+    node.roads = json_sort_values(node.roads);
+    for (var i = 0; i < node.roads.length; i++) {
         var node_f_cost = Math.round(node.f_cost*2);
 
-        var parent = json_find(map, "name", get_pin(node.parents[i]));
-            parent.g_cost = get_value(node.parents[i]);
-            parent.f_cost = parent.g_cost + parent.h_cost;
+        var road = json_find(map, "name", get_pin(node.roads[i]));
+            road.g_cost = get_value(node.roads[i]);
+            road.f_cost = road.g_cost + road.h_cost;
 
-        if(parent.f_cost < node_f_cost && !json_find(path, "name", parent.name)){
-            node.g_cost = parent.g_cost;
-            path_builder(map, parent, path);
+        if(road.f_cost < node_f_cost && !json_find(path, "name", road.name)){
+            node.g_cost = road.g_cost;
+            path_builder(map, road, path);
             path.pop(node);
         }
     }

@@ -22,14 +22,14 @@ function draw_stage(data) {
         layer2.addChild(cityName);
         layer2.update();
 
-        $(city.parents).each(function(i, parent){
-            parent = json_find(data, "name", Object.keys(parent)[0])
-            if(parent){
+        $(city.roads).each(function(i, road){
+            road = json_find(data, "name", Object.keys(road)[0])
+            if(road){
                 var roadShape = new createjs.Shape();
                 roadShape.graphics.beginStroke("rgba(250, 250, 250, 0.5)")
                                     .setStrokeStyle(5, "round", "round");
                 roadShape.graphics.moveTo(city.longitude, city.latitude);
-                roadShape.graphics.lineTo(parent.longitude, parent.latitude);
+                roadShape.graphics.lineTo(road.longitude, road.latitude);
                 layer0.addChild(roadShape);
                 layer0.update();
             }

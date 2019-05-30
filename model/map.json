@@ -3,7 +3,7 @@
         "name" : "Arad",
         "longitude" : 49,
         "latitude" : 136,
-        "parents" : [
+        "roads" : [
             {"Timisoara": 118},
             {"Sibiu": 140},
             {"Zerind": 75}
@@ -13,7 +13,7 @@
         "name" : "Bucharest",
         "longitude" : 488,
         "latitude" : 371,
-        "parents" : [
+        "roads" : [
             {"Fagaras": 211},
             {"Pitesti": 101},
             {"Giurgiu": 90},
@@ -24,7 +24,7 @@
         "name" : "Craiova",
         "longitude" : 278,
         "latitude" : 427,
-        "parents" : [
+        "roads" : [
             {"Pitesti": 138},
             {"Rimnicu Vilcea": 146},
             {"Dobreta": 120}
@@ -34,7 +34,7 @@
         "name" : "Dobreta",
         "longitude" : 154,
         "latitude" : 411,
-        "parents" : [
+        "roads" : [
             {"Craiova": 120},
             {"Mehadia": 75}
         ]
@@ -43,7 +43,7 @@
         "name" : "Eforie",
         "longitude" : 718,
         "latitude" : 419,
-        "parents" : [
+        "roads" : [
             {"Hirsova": 86}
         ]
     },
@@ -51,7 +51,7 @@
         "name" : "Fagaras",
         "longitude" : 355,
         "latitude" : 198,
-        "parents" : [
+        "roads" : [
             {"Sibiu": 99},
             {"Bucharest": 211}
         ]
@@ -60,7 +60,7 @@
         "name" : "Giurgiu",
         "longitude" : 451,
         "latitude" : 451,
-        "parents" : [
+        "roads" : [
             {"Bucharest": 90}
         ]
     },
@@ -68,7 +68,7 @@
         "name" : "Hirsova",
         "longitude" : 677,
         "latitude" : 339,
-        "parents" : [
+        "roads" : [
             {"Eforie": 86},
             {"Urziceni": 98}
         ]
@@ -77,7 +77,7 @@
         "name" : "Iasi",
         "longitude" : 593,
         "latitude" : 117,
-        "parents" : [
+        "roads" : [
             {"Neamt": 87},
             {"Vasiul": 92}
         ]
@@ -86,7 +86,7 @@
         "name" : "Lugoj",
         "longitude" : 154,
         "latitude" : 298,
-        "parents" : [
+        "roads" : [
             {"Mehadia": 70},
             {"Timisoara": 111}
         ]
@@ -95,7 +95,7 @@
         "name" : "Mehadia",
         "longitude" : 158,
         "latitude" : 354,
-        "parents" : [
+        "roads" : [
             {"Lugoj": 70},
             {"Dobreta": 75}
         ]
@@ -104,7 +104,7 @@
         "name" : "Neamt",
         "longitude" : 496,
         "latitude" : 73,
-        "parents" : [
+        "roads" : [
             {"Iasi": 87}
         ]
     },
@@ -112,7 +112,7 @@
         "name" : "Oradea",
         "longitude" : 106,
         "latitude" : 25,
-        "parents" : [
+        "roads" : [
             {"Zerind": 71},
             {"Sibiu": 151}
         ]
@@ -121,7 +121,7 @@
         "name" : "Pitesti",
         "longitude" : 376,
         "latitude" : 314,
-        "parents" : [
+        "roads" : [
             {"Bucharest": 101},
             {"Craiova": 138},
             {"Rimnicu Vilcea": 97}
@@ -131,7 +131,7 @@
         "name" : "Rimnicu Vilcea",
         "longitude" : 250,
         "latitude" : 254,
-        "parents" : [
+        "roads" : [
             {"Sibiu": 80},
             {"Craiova": 146},
             {"Pitesti": 97}
@@ -141,7 +141,7 @@
         "name" : "Sibiu",
         "longitude" : 215,
         "latitude" : 186,
-        "parents" : [
+        "roads" : [
             {"Arad": 140},
             {"Oradea": 151},
             {"Fagaras": 99},
@@ -152,7 +152,7 @@
         "name" : "Timisoara",
         "longitude" : 53,
         "latitude" : 254,
-        "parents" : [
+        "roads" : [
             {"Arad": 118},
             {"Lugoj": 111}
         ]
@@ -161,7 +161,7 @@
         "name" : "Urziceni",
         "longitude" : 569,
         "latitude" : 338,
-        "parents" : [
+        "roads" : [
             {"Bucharest": 85},
             {"Hirsova": 98},
             {"Vasiul": 142}
@@ -171,7 +171,7 @@
         "name" : "Vasiul",
         "longitude" : 644,
         "latitude" : 204,
-        "parents" : [
+        "roads" : [
             {"Iasi": 92},
             {"Urziceni": 142}
         ]
@@ -179,8 +179,8 @@
     {
         "name" : "Zerind",
         "longitude" : 74,
-        "latitude" : 81,        
-        "parents" : [
+        "latitude" : 81,
+        "roads" : [
             {"Arad": 75},
             {"Oradea": 71}
         ]

@@ -48,21 +48,21 @@ function path_builder(map, node, path){
         return paths;
     }
     // ordena os filhos pelo menor g_cost    
-    node.parents = json_sort_values(node.parents);
+    node.roads = json_sort_values(node.roads);
     // percorre os filhos do nó atual
-    for (var i = 0; i < node.parents.length; i++) {
+    for (var i = 0; i < node.roads.length; i++) {
         // ajuste de f_cost para o caminho não abrir nós na direção oposta ao destino
         var node_f_cost = Math.round(node.f_cost*2);
 
         // pega os dados do nó filho para calcular o f_cost
-        var parent = json_find(map, "name", get_pin(node.parents[i]));
-            parent.g_cost = get_value(node.parents[i]);
-            parent.f_cost = parent.g_cost + parent.h_cost;
+        var road = json_find(map, "name", get_pin(node.roads[i]));
+            road.g_cost = get_value(node.roads[i]);
+            road.f_cost = road.g_cost + road.h_cost;
 
         // verifica se o caminho está na direção correta e se o nó filho não foi aberto
-        if(parent.f_cost < node_f_cost && !json_find(path, "name", parent.name)){
-            node.g_cost = parent.g_cost;
-            path_builder(map, parent, path);
+        if(road.f_cost < node_f_cost && !json_find(path, "name", road.name)){
+            node.g_cost = road.g_cost;
+            path_builder(map, road, path);
             path.pop(node);
         }
     }
@@ -74,14 +74,14 @@ Os dados são lidos do arquivo **model/map.json**. O arquivo armazena um array d
     "name" : "Arad",
     "longitude" : 49,
     "latitude" : 136,    
-    "parents" : [
+    "roads" : [
         {"Timisoara": 118},
         {"Sibiu": 140},
         {"Zerind": 75}
     ]
 },
 ```
-longitude e latitude são utilizados para a representação gráfica(x,y), e o atributo parents lista os nós adjacentes e custo para alcançar cada um deles.
+longitude e latitude são utilizados para a representação gráfica(x,y), e o atributo roads lista os nós adjacentes e custo para alcançar cada um deles.
 
 #### DEMO
 Você pode conferir a demo em: <a href="https://marcelobns.github.io/project/search-a-star/">marcelobns.github.io</a>
