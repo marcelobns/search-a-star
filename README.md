@@ -13,7 +13,7 @@
  JSON (JavaScript Object Notation) é uma estrutura de dados do tipo semi-estruturada, caracterizada por ser menos verbosa que o XML. É escrita em formato texto e completamente independente de linguagem, pois usa convenções que são familiares às linguagens C, Java, Perl, Python e muitas outras. Estas propriedades fazem com que JSON seja um formato ideal de troca de dados. [<a href="http://www.json.org/json-pt.html">Saiba mais</a>]
 
 #### Canvas
- É um elemento HTML que pode ser utilizado para desenhar usando linguagem de "script". Pode ser usado, por exemplo para desenha gráficos, fazer composições de imagens ou simples animações. [<a href="https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Canvas_tutorial">Saiba mais</a>]
+ É um elemento HTML que pode ser utilizado para desenhar utilizando linguagem de "script". Pode ser usado, por exemplo para desenhar gráficos, fazer composições de imagens ou simples animações. [<a href="https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Canvas_tutorial">Saiba mais</a>]
 
 ### Estrutura do Projeto
 * search-a-star
