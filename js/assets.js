@@ -44,6 +44,5 @@ function json_sort_values(collection) {
 }
 // The Euclidean distance formula √((ax - bx)² + (ay - by)²)
 function euclidean_distance(pointA, pointB) {
-    var line = Math.sqrt(Math.pow(pointA[0] - pointB[0], 2) + Math.pow(pointA[1] - pointB[1], 2));
-    return Math.round(line);
+    return Math.sqrt(Math.pow(pointA[0] - pointB[0], 2) + Math.pow(pointA[1] - pointB[1], 2));
 }
