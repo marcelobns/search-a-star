@@ -1,5 +1,3 @@
-var routes = [];
-
 $(function(){
     $.getJSON("model/map.json", function(data){
         draw_stage(data);
@@ -12,25 +10,20 @@ $(function(){
             var destiny = $("#destiny").val();
 
             if(destiny != "") {
-                routes = find_path(data, origin, destiny);
-                for (var i in routes) {
+                var route = find_path(data, origin, destiny);
+                if(route) {
                     var route_name = [];
-                    for (var j in routes[i]) {
-                        route_name.push(routes[i][j].name);
+                    for (var i = 0; i < route.path.length; i++) {
+                        route_name.push(route.path[i].name);
                     }
-                    route_name = route_name.slice(1, 4);
-                    $("#output").append("<li id=r"+i+"><a href='#'>via "+route_name.join('/')+"<span class='badge'>"+i+"</span></a></li>")
+                    var via = route_name.length > 2 ? "via "+route_name.slice(1, -1).join('/') : "direto";
+                    $("#output").append("<li class='active'><a href='#'>"+via+"<span class='badge'>"+route.cost+"</span></a></li>");
+                    draw_path(route.path);
+                } else {
+                    $("#output").append("<li><a href='#'>Nenhuma rota encontrada</a></li>");
+                    draw_path([]);
                 }
-                $("#output li").first().addClass("active");
-                var id = $("#output li").first()[0].id.replace('r','');
-                draw_path(routes[id]);
             }
-            $("#output li").on("click", function(e){
-                $("#output li").removeClass("active");
-                $(this).addClass("active");
-                var id = this.id.replace('r','');
-                draw_path(routes[id]);
-            });
         });
     });
     $("#nav-left").on("swipe", function(e){

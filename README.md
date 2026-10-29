@@ -29,45 +29,47 @@
         * **map.json**
     * index.html
 
-O **Algoritmo** está implementado no arquivo **js/a-star.js**. O algoritmo foi implementado de forma recursiva para respeitar o princípio **DRY** (don't repeat yourself).
+O **Algoritmo** está implementado no arquivo **js/a-star.js**. A busca mantém uma lista aberta (fronteira) ordenada pelo menor `f_cost = g_cost + h_cost`, onde `g_cost` é o custo acumulado desde a origem e `h_cost` é a heurística. O destino só é aceito quando sai da lista aberta, o que garante o caminho de menor custo.
 
 ``` JS
-// Antes de montar o caminho é necessário calcular o h_cost(heuristic) baseado no destino
-// utilizando a fórmula √((ax - bx)² + (ay - by)²)
-map = set_h_cost(map, destiny);
+// Retorna {path: [nós da origem ao destino], cost: custo total} ou null se não houver caminho
+var route = find_path(map, "Arad", "Bucharest");
 
-// Chamada da função, último parametro deve ir um array vazio para indicar que é a primeira chamada.
-path_builder(map, node, []);
+function find_path(map, origin, destiny) {
+    map = set_h_cost(map, destiny);
 
-function path_builder(map, node, path){
-    path.push(node);
-    // Se o h_cost do nó for 0 então o caminho chegou ao destino
-    if(node.h_cost == 0){
-        node.g_cost = 0;
-        paths[get_cost(path)] = path.slice();
-        return paths;
-    }
-    // ordena os filhos pelo menor g_cost    
-    node.roads = json_sort_values(node.roads);
-    // percorre os filhos do nó atual
-    for (var i = 0; i < node.roads.length; i++) {
-        // ajuste de f_cost para o caminho não abrir nós na direção oposta ao destino
-        var node_f_cost = Math.round(node.f_cost*2);
+    var start = json_find(map, "name", origin);
+    var open = [{node: start, g_cost: 0, f_cost: start.h_cost, path: [start]}];
+    var best_g_cost = {};
+        best_g_cost[start.name] = 0;
 
-        // pega os dados do nó filho para calcular o f_cost
-        var road = json_find(map, "name", get_pin(node.roads[i]));
-            road.g_cost = get_value(node.roads[i]);
-            road.f_cost = road.g_cost + road.h_cost;
+    while (open.length > 0) {
+        // expande sempre o nó com menor f_cost
+        open.sort(function(a, b){ return a.f_cost - b.f_cost; });
+        var current = open.shift();
 
-        // verifica se o caminho está na direção correta e se o nó filho não foi aberto
-        if(road.f_cost < node_f_cost && !json_find(path, "name", road.name)){
-            node.g_cost = road.g_cost;
-            path_builder(map, road, path);
-            path.pop(node);
+        if (current.node.name == destiny) {
+            return {path: current.path, cost: current.g_cost};
+        }
+        if (current.g_cost > best_g_cost[current.node.name]) {
+            continue;
+        }
+        for (var i = 0; i < current.node.roads.length; i++) {
+            var road = json_find(map, "name", get_pin(current.node.roads[i]));
+            var g_cost = current.g_cost + get_value(current.node.roads[i]);
+
+            if (best_g_cost[road.name] !== undefined && g_cost >= best_g_cost[road.name]) {
+                continue;
+            }
+            best_g_cost[road.name] = g_cost;
+            open.push({node: road, g_cost: g_cost, f_cost: g_cost + road.h_cost, path: current.path.concat(road)});
         }
     }
+    return null;
 }
 ```
+A heurística é a distância euclidiana √((ax - bx)² + (ay - by)²). Como as coordenadas do mapa estão em pixels e o custo das estradas em km, a distância é multiplicada pela menor razão km/pixel entre as estradas do mapa. Assim o `h_cost` nunca supera o custo real, ou seja, a heurística é **admissível** e **consistente**.
+
 Os dados são lidos do arquivo **model/map.json**. O arquivo armazena um array de objetos com a seguinte estrutura, que pode ser facilmente replicável.
 ``` JSON
 {
