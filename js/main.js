@@ -16,7 +16,7 @@ $(function(){
                     for (var i = 0; i < route.path.length; i++) {
                         route_name.push(route.path[i].name);
                     }
-                    var via = route_name.length > 2 ? "via "+route_name.slice(1, -1).join('/') : "direto";
+                    var via = route_name.length > 2 ? "via "+route_name.slice(1, -1).join('/') : (route_name.length == 2 ? "direto" : "mesma cidade");
                     $("#output").append("<li class='active'><a href='#'>"+via+"<span class='badge'>"+route.cost+"</span></a></li>");
                     draw_path(route.path);
                 } else {

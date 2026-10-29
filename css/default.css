@@ -6,9 +6,17 @@ body {
     background-image: url('../img/background.png');
 }
 .canvas {
-    width: 800px;
+    max-width: 900px;
     margin: auto;
     margin-top: 5%;
+}
+.canvas canvas {
+    display: block;
+}
+@media (max-width: 767px) {
+    .canvas {
+        margin-top: 80px;
+    }
 }
 .brand {
     position: fixed;
