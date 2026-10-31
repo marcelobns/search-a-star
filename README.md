@@ -1,37 +1,40 @@
-## Atividade de implementação do algorítmo A* Search
-###### Atividade acadêmica [IABV 2016]
- Marcelo Barbosa [@github/marcelobns](https://github.com/marcelobns)
+# A* Search
 
- Implementação do Algoritmo A_Estrela (**A* Search**). A solução foi escrita em **JavaScript** por motivo de facilidade na distribuição e utiliza uma estrutura de dados semi-estruturada **JSON** como fonte de dados. E por fim o mapa é desenhado com HTML **Canvas**.
+Demo da implementação do algoritmo de busca **A\*** (A-Estrela) em JavaScript puro, aplicada ao clássico mapa rodoviário da Romênia. Escolha uma cidade de origem e uma de destino: o A\* calcula a rota de menor custo e o traçado é animado sobre o mapa, desenhado com a API nativa do **Canvas 2D**.
 
- Todas as tecnologia utilizadas são livres e padrões da industria. [<a href="https://marcelobns.github.io/project/search-a-star/">Live Demo</a>]
+**[▶ Ver a demo](https://marcelobns.github.io/project/search-a-star/)**
 
-#### JavaScript
- O JavaScript vem ganhando força de mercado por sua capacidade de resolver problemas de diversos tamanhos e complexidades. Padrão da indústria como linguagem Front-end para a web, também vem se consolidando como tecnologia Back-end e Desktop. [<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript">Saiba mais</a>]
+## Como rodar localmente
 
-#### JSON
- JSON (JavaScript Object Notation) é uma estrutura de dados do tipo semi-estruturada, caracterizada por ser menos verbosa que o XML. É escrita em formato texto e completamente independente de linguagem, pois usa convenções que são familiares às linguagens C, Java, Perl, Python e muitas outras. Estas propriedades fazem com que JSON seja um formato ideal de troca de dados. [<a href="http://www.json.org/json-pt.html">Saiba mais</a>]
+O mapa é carregado de `model/map.json` via requisição HTTP, então abrir o `index.html` direto pelo sistema de arquivos não funciona. Sirva a pasta com qualquer servidor estático:
 
-#### Canvas
- É um elemento HTML que pode ser utilizado para desenhar utilizando linguagem de "script". Pode ser usado, por exemplo para desenhar gráficos, fazer composições de imagens ou simples animações. [<a href="https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Canvas_tutorial">Saiba mais</a>]
+```sh
+python3 -m http.server 8000
+# acesse http://localhost:8000
+```
 
-### Estrutura do Projeto
-* search-a-star
-    * css        
-    * fonts        
-    * img        
-    * js
-        * **a-star.js**
-        * assets.js
-        * canvas.js
-        * main.js        
-    * model
-        * **map.json**
-    * index.html
+## Estrutura
 
-O **Algoritmo** está implementado no arquivo **js/a-star.js**. A busca mantém uma lista aberta (fronteira) ordenada pelo menor `f_cost = g_cost + h_cost`, onde `g_cost` é o custo acumulado desde a origem e `h_cost` é a heurística. O destino só é aceito quando sai da lista aberta, o que garante o caminho de menor custo.
+```text
+search-a-star
+├── css/
+├── fonts/
+├── img/
+├── js/
+│   ├── a-star.js   # algoritmo A* e heurística
+│   ├── assets.js   # utilitários (busca no JSON, distância euclidiana)
+│   ├── canvas.js   # renderização do mapa e da rota (Canvas 2D)
+│   └── main.js     # interface: formulário e integração
+├── model/
+│   └── map.json    # cidades, coordenadas e estradas
+└── index.html
+```
 
-``` JS
+## O algoritmo
+
+A implementação está em [`js/a-star.js`](js/a-star.js). A busca mantém uma lista aberta (fronteira) ordenada pelo menor `f_cost = g_cost + h_cost`, onde `g_cost` é o custo acumulado desde a origem e `h_cost` é a estimativa da heurística até o destino. O destino só é aceito quando sai da lista aberta, o que garante o caminho de menor custo.
+
+```js
 // Retorna {path: [nós da origem ao destino], cost: custo total} ou null se não houver caminho
 var route = find_path(map, "Arad", "Bucharest");
 
@@ -68,26 +71,30 @@ function find_path(map, origin, destiny) {
     return null;
 }
 ```
-A heurística é a distância euclidiana √((ax - bx)² + (ay - by)²). Como as coordenadas do mapa estão em pixels e o custo das estradas em km, a distância é multiplicada pela menor razão km/pixel entre as estradas do mapa. Assim o `h_cost` nunca supera o custo real, ou seja, a heurística é **admissível** e **consistente**.
 
-Os dados são lidos do arquivo **model/map.json**. O arquivo armazena um array de objetos com a seguinte estrutura, que pode ser facilmente replicável.
-``` JSON
+### Heurística
+
+A heurística é a distância euclidiana `√((ax - bx)² + (ay - by)²)`. Como as coordenadas do mapa estão em pixels e o custo das estradas em km, a distância é multiplicada pela menor razão km/pixel entre as estradas do mapa. Assim o `h_cost` nunca supera o custo real: a heurística é **admissível** e **consistente**.
+
+## Dados do mapa
+
+O arquivo [`model/map.json`](model/map.json) é um array de cidades com a seguinte estrutura:
+
+```json
 {
-    "name" : "Arad",
-    "longitude" : 49,
-    "latitude" : 136,    
-    "roads" : [
+    "name": "Arad",
+    "longitude": 49,
+    "latitude": 136,
+    "roads": [
         {"Timisoara": 118},
         {"Sibiu": 140},
         {"Zerind": 75}
     ]
-},
+}
 ```
-longitude e latitude são utilizados para a representação gráfica(x,y), e o atributo roads lista os nós adjacentes e custo para alcançar cada um deles.
 
-#### DEMO
-Você pode conferir a demo em: <a href="https://marcelobns.github.io/project/search-a-star/">marcelobns.github.io</a>
+`longitude` e `latitude` são as coordenadas (x, y) usadas no desenho, e `roads` lista as cidades vizinhas com o custo (km) para alcançar cada uma. Para usar outro mapa, basta seguir o mesmo formato.
 
-## Licença de Uso
-GNU GENERAL PUBLIC LICENSE <br>
-   Version 3, 29 June 2007
+## Licença
+
+[GNU General Public License v3.0](LICENSE)
