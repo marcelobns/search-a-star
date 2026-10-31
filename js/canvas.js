@@ -10,7 +10,8 @@ var stage = {
     height: 0,
     scale: 1,
     compact: false,
-    bounds: null
+    bounds: null,
+    labels: []
 };
 var colors = {
     road: "rgba(255, 255, 255, 0.85)",
@@ -63,15 +64,21 @@ function draw_path(path) {
     }
     requestAnimationFrame(step);
 }
-// Ajusta o tamanho do canvas ao container, mantendo a proporção do mapa
+// Ajusta o tamanho do canvas ao container, mantendo a proporção do mapa.
+// No desktop o mapa cabe inteiro na área visível; no mobile acompanha só a largura.
 function resize_stage() {
     var b = stage.bounds;
     var map_width = b.max_x - b.min_x + padding.left + padding.right;
     var map_height = b.max_y - b.min_y + padding.top + padding.bottom;
     var dpr = window.devicePixelRatio || 1;
+    var box = stage.canvas.parentNode;
+    var fit_height = window.matchMedia("(min-width: 768px)").matches && box.clientHeight > 0;
 
-    stage.width = stage.canvas.parentNode.clientWidth;
-    stage.scale = stage.width / map_width;
+    stage.scale = box.clientWidth / map_width;
+    if (fit_height) {
+        stage.scale = Math.min(stage.scale, box.clientHeight / map_height, 2);
+    }
+    stage.width = Math.round(map_width * stage.scale);
     stage.height = Math.round(map_height * stage.scale);
     // em telas pequenas os textos diminuem e só os custos da rota aparecem
     stage.compact = stage.scale < 0.7;
@@ -107,8 +114,11 @@ function render() {
         var box = draw_cost(roads[i]);
         if (box) boxes.push(box);
     }
+    stage.labels = [];
     for (var i = 0; i < stage.data.length; i++) {
-        boxes.push(draw_city(stage.data[i], boxes));
+        var label = draw_city(stage.data[i], boxes);
+        boxes.push(label);
+        stage.labels.push({city: stage.data[i], box: label});
     }
     if (stage.path.length > 0) {
         draw_marker(stage.path[0], colors.origin);
@@ -224,6 +234,26 @@ function overlaps(box, boxes) {
         }
     }
     return count;
+}
+// Cidade sob a posição (x, y) do canvas: o ponto da cidade ou o seu nome
+function city_at(x, y) {
+    var best = null, best_distance = stage.compact ? 16 : 12;
+    for (var i = 0; i < stage.data.length; i++) {
+        var distance = euclidean_distance(point(stage.data[i]), [x, y]);
+        if (distance <= best_distance) {
+            best = stage.data[i];
+            best_distance = distance;
+        }
+    }
+    if (best) return best;
+    var labels = stage.labels || [];
+    for (var i = 0; i < labels.length; i++) {
+        var b = labels[i].box;
+        if (x >= b.x - 2 && x <= b.x + b.width + 2 && y >= b.y - 2 && y <= b.y + b.height + 2) {
+            return labels[i].city;
+        }
+    }
+    return null;
 }
 function draw_marker(city, color) {
     var ctx = stage.ctx;

@@ -1,6 +1,6 @@
 # A* Search
 
-Demo da implementação do algoritmo de busca **A\*** (A-Estrela) em JavaScript puro, aplicada ao clássico mapa rodoviário da Romênia. Escolha uma cidade de origem e uma de destino: o A\* calcula a rota de menor custo e o traçado é animado sobre o mapa, desenhado com a API nativa do **Canvas 2D**.
+Demo da implementação do algoritmo de busca **A\*** (A-Estrela) em JavaScript puro, aplicada ao clássico mapa rodoviário da Romênia. Escolha a origem e o destino (ou clique numa cidade do mapa): o A\* calcula a rota de menor custo e o traçado é animado sobre o mapa, desenhado com a API nativa do **Canvas 2D**.
 
 **[▶ Ver a demo](https://marcelobns.github.io/project/search-a-star/)**
 
